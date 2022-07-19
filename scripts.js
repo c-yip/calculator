@@ -1,5 +1,8 @@
-//math functions
+//testing variables
+let input1 = 1;
+let input2 = 1;
 
+//math functions
 function add(a, b) {
     return a + b;
 }
@@ -16,6 +19,16 @@ function add(a, b) {
     return a / b;
 }
 
-function operate() {
+function operate(operator) {
+    if (operator == 'operatorAdd')
+        return add(input1, input2);
 
+    if (operator == 'operatorSubtract')
+        return subtract(input1, input2);
+
+    if (operator == 'operatorMultiply')
+        return multiply(input1, input2);
+
+    if (operator == 'operatorDivide')
+        return divide(input1, input2);
 }
