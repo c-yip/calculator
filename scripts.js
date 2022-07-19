@@ -35,3 +35,4 @@ function operate(operator) {
 
 // display
 display = document.querySelector('h2');
+inputToDisplay = document.querySelector('.inputToDisplay').addEventListener('click', display.textContent = 'test')
