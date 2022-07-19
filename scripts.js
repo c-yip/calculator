@@ -32,3 +32,6 @@ function operate(operator) {
     if (operator == 'operatorDivide')
         return divide(input1, input2);
 }
+
+// display
+display = document.querySelector('h2');
