@@ -1,17 +1,21 @@
 //math functions
 
-const add = function(a) {
-    return a + a;
+function add(a, b) {
+    return a + b;
 }
 
-const subtract = function(a) {
-    return a - a;
+ function subtract(a, b) {
+    return a - b;
 }
 
-const multiply = function(a) {
-    return a * a;
+ function multiply(a, b) {
+    return a * b;
 }
 
-const divide = function(a) {
-    return a / a;
+ function divide(a, b) {
+    return a / b;
+}
+
+function operate() {
+
 }
