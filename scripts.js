@@ -41,13 +41,13 @@ const numbers = buttons.querySelectorAll('.numbers');
 
 numbers.forEach(item => {
     item.addEventListener('click', e => {
-        console.log(item);
         if (display.textContent === '0') {
             display.textContent = item.textContent;
         } else {
             display.textContent = display.textContent + item.textContent;
+            let displayValue = display.textContent;
+            console.log(displayValue);
         }
-        
     })
 })
 
