@@ -39,28 +39,45 @@ const display = calculator.querySelector('h2');
 const buttons = calculator.querySelector('.buttons');
 const numbers = buttons.querySelectorAll('.numbers');
 
-numbers.forEach(item => {
-    item.addEventListener('click', e => {
-        if (display.textContent === '0') {
-            display.textContent = item.textContent;
-        } else {
-            display.textContent = display.textContent + item.textContent;
-            let displayValue = display.textContent;
-            console.log(displayValue);
-        }
-    })
-})
-
-// buttons.addEventListener('click', e => {
-//     if (e.target.matches('button')) {
-//         const btn = e.target;
-//         console.log(btn)
-//         const btnContent = btn.textContent;
-//         const displayedNum = display.textContent;
-//         if (displayedNum === '0') {
-//             display.textContent = btnContent;
+// numbers.forEach(item => {
+//     item.addEventListener('click', e => {
+//         if (display.textContent === '0') {
+//             display.textContent = item.textContent;
 //         } else {
-//             display.textContent = displayedNum + btnContent;
+//             display.textContent = display.textContent + item.textContent;
+//             let displayValue = display.textContent;
+//             console.log(displayValue);
 //         }
-//     }
-// });
+//     })
+// })
+
+buttons.addEventListener('click', e => {
+    if (e.target.matches('button')) {
+        const btn = e.target;
+        const action = btn.dataset.action;
+        const btnContent = btn.textContent;
+        const displayedNum = display.textContent;
+        //displays number
+        if (!action) {
+            if (displayedNum === '0') {
+                display.textContent = btnContent;
+            } else {
+                display.textContent = displayedNum + btnContent;
+            }
+        }
+
+        if (action === 'decimal') {
+            display.textContent = displayedNum + '.';
+        }
+
+        if (action == 'add' || action == 'subtract' || action == 'multiply' || action == 'divide') {
+            if (displayedNum === '0') {
+                display.textContent = btnContent;
+            } else {
+                display.textContent = displayedNum +  " " + btnContent + " ";
+            }
+
+            calculator.dataset.previousKeyType = 'operator';
+        }
+    }
+});
