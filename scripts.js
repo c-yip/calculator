@@ -33,10 +33,21 @@ function operate(operator) {
         return divide(input1, input2);
 }
 
-// display
-display = document.querySelector('h2');
-const inputToDisplay = document.querySelectorAll('.inputToDisplay');
+// calculator
+const calculator = document.querySelector('.calculator');
+const display = calculator.querySelector('h2');
+const buttons = calculator.querySelector('.buttons');
 
-inputToDisplay.forEach(e => {
-    e.addEventListener('click', () => display.textContent = (e.dataset.num));
+buttons.addEventListener('click', e => {
+    if (e.target.matches('button')) {
+        const btn = e.target;
+        console.log(btn)
+        const btnContent = btn.textContent;
+        const displayedNum = display.textContent;
+        if (displayedNum === '0') {
+            display.textContent = btnContent;
+        } else {
+            display.textContent = displayedNum + btnContent;
+        }
+    }
 });
