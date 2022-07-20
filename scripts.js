@@ -35,4 +35,9 @@ function operate(operator) {
 
 // display
 display = document.querySelector('h2');
-inputToDisplay = document.querySelector('.inputToDisplay').addEventListener('click', display.textContent = 'test')
+const inputToDisplay = document.querySelectorAll('.inputToDisplay');
+console.log(inputToDisplay);
+
+inputToDisplay.forEach(input => {
+    input.addEventListener('click', () => console.log('bye'))
+});
