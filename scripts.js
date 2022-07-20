@@ -36,8 +36,7 @@ function operate(operator) {
 // display
 display = document.querySelector('h2');
 const inputToDisplay = document.querySelectorAll('.inputToDisplay');
-console.log(inputToDisplay);
 
-inputToDisplay.forEach(input => {
-    input.addEventListener('click', () => console.log('bye'))
+inputToDisplay.forEach(e => {
+    e.addEventListener('click', () => display.textContent = (e.dataset.num));
 });
