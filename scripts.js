@@ -15,10 +15,10 @@ buttons.addEventListener('click', e => {
         let firstValue =  calculator.dataset.firstValue;
         let secondValue;
 
-        //displays number
+        //displays number & resets display if previous key operator or calculate
         if (!action) {
             calculator.dataset.previousKeyType = 'number';
-            if (displayedNum === '0' || previousKeyType === 'operator') {
+            if (displayedNum === '0' || previousKeyType === 'operator' || previousKeyType === 'calculate') {
                 display.textContent = btnContent;
             } else {
                 display.textContent = displayedNum + btnContent;
