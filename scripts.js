@@ -1,23 +1,9 @@
-
-
-// calculator
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('.display');
 const opDisplay = calculator.querySelector('.op-display')
 const buttons = calculator.querySelector('.buttons');
 const numbers = buttons.querySelectorAll('.numbers');
 
-// numbers.forEach(item => {
-//     item.addEventListener('click', e => {
-//         if (display.textContent === '0') {
-//             display.textContent = item.textContent;
-//         } else {
-//             display.textContent = display.textContent + item.textContent;
-//             let displayValue = display.textContent;
-//             console.log(displayValue);
-//         }
-//     })
-// })
 
 buttons.addEventListener('click', e => {
     if (e.target.matches('button')) {
@@ -52,6 +38,7 @@ buttons.addEventListener('click', e => {
         }
 
         if (action === 'calculate') {
+            calculator.dataset.previousKeyType = 'calculate';
             secondValue = displayedNum;
             console.log('first value ' + firstValue)
             console.log('second value ' + secondValue);
@@ -73,6 +60,13 @@ buttons.addEventListener('click', e => {
                 return result;
             }
             display.textContent = operate(firstValue, operator, secondValue);
+        }
+
+        if (action === 'clear') {
+            display.textContent = '0';
+            firstValue = '0';
+            secondValue = '0';
+            console.log(`${firstValue} ${secondValue}`);
         }
     }
 });
