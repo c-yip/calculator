@@ -12,6 +12,11 @@ html, body {
     grid-template-rows: (2, 1fr);
 }
 
+.displays {
+    display: flex;
+    justify-content: space-between;
+}
+
 .buttons {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

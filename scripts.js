@@ -35,7 +35,8 @@ function operate(operator) {
 
 // calculator
 const calculator = document.querySelector('.calculator');
-const display = calculator.querySelector('h2');
+const display = calculator.querySelector('.display');
+const opDisplay = calculator.querySelector('.op-display')
 const buttons = calculator.querySelector('.buttons');
 const numbers = buttons.querySelectorAll('.numbers');
 
@@ -57,9 +58,12 @@ buttons.addEventListener('click', e => {
         const action = btn.dataset.action;
         const btnContent = btn.textContent;
         const displayedNum = display.textContent;
+        const previousKeyType = calculator.dataset.previousKeyType
+
         //displays number
         if (!action) {
-            if (displayedNum === '0') {
+            calculator.dataset.previousKeyType = 'number';
+            if (displayedNum === '0' || previousKeyType === 'operator') {
                 display.textContent = btnContent;
             } else {
                 display.textContent = displayedNum + btnContent;
@@ -67,17 +71,13 @@ buttons.addEventListener('click', e => {
         }
 
         if (action === 'decimal') {
+            calculator.dataset.previousKeyType = 'decimal';
             display.textContent = displayedNum + '.';
         }
 
         if (action == 'add' || action == 'subtract' || action == 'multiply' || action == 'divide') {
-            if (displayedNum === '0') {
-                display.textContent = btnContent;
-            } else {
-                display.textContent = displayedNum +  " " + btnContent + " ";
-            }
-
             calculator.dataset.previousKeyType = 'operator';
+            opDisplay.textContent = btnContent;
         }
     }
 });
