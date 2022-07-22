@@ -12,8 +12,6 @@ buttons.addEventListener('click', e => {
         const btnContent = btn.textContent;
         const displayedNum = display.textContent;
         const previousKeyType = calculator.dataset.previousKeyType;
-        let firstValue =  calculator.dataset.firstValue;
-        let secondValue;
 
         //displays number & resets display if previous key operator or calculate
         if (!action) {
@@ -36,14 +34,19 @@ buttons.addEventListener('click', e => {
 
         if (action == 'add' || action == 'subtract' || action == 'multiply' || action == 'divide') {
             calculator.dataset.previousKeyType = 'operator';
+            // sets dataset of operator to the operator key pressed so that it can be plugged into operate function
             calculator.dataset.operator = action;
+            // displays operator 
             opDisplay.textContent = btnContent;
+            // sets dataset of firstValue to displayedNum
             calculator.dataset.firstValue = displayedNum;
         }
 
         if (action === 'calculate') {
             calculator.dataset.previousKeyType = 'calculate';
-            secondValue = displayedNum;
+            const firstValue = calculator.dataset.firstValue;
+            // sets secondValue to displayedNum
+            const secondValue = displayedNum;
             console.log(`First Value: ${firstValue} Second Value: ${secondValue}`);
             const operator = calculator.dataset.operator;
             
