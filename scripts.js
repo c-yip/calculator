@@ -40,8 +40,7 @@ buttons.addEventListener('click', e => {
         if (action === 'calculate') {
             calculator.dataset.previousKeyType = 'calculate';
             secondValue = displayedNum;
-            console.log('first value ' + firstValue)
-            console.log('second value ' + secondValue);
+            console.log(`First Value: ${firstValue} Second Value: ${secondValue}`);
             const operator = calculator.dataset.operator;
             function operate(a, operator, b) {
                 let result;
@@ -66,7 +65,8 @@ buttons.addEventListener('click', e => {
             display.textContent = '0';
             firstValue = '0';
             secondValue = '0';
-            console.log(`${firstValue} ${secondValue}`);
+            opDisplay.textContent = '';
+            console.log(`First Value: ${firstValue} Second Value: ${secondValue}`);
         }
     }
 });
