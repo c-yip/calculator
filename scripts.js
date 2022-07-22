@@ -1,37 +1,4 @@
-//testing variables
-let input1 = 1;
-let input2 = 1;
 
-//math functions
-function add(a, b) {
-    return a + b;
-}
-
- function subtract(a, b) {
-    return a - b;
-}
-
- function multiply(a, b) {
-    return a * b;
-}
-
- function divide(a, b) {
-    return a / b;
-}
-
-function operate(operator) {
-    if (operator == 'operatorAdd')
-        return add(input1, input2);
-
-    if (operator == 'operatorSubtract')
-        return subtract(input1, input2);
-
-    if (operator == 'operatorMultiply')
-        return multiply(input1, input2);
-
-    if (operator == 'operatorDivide')
-        return divide(input1, input2);
-}
 
 // calculator
 const calculator = document.querySelector('.calculator');
@@ -58,7 +25,9 @@ buttons.addEventListener('click', e => {
         const action = btn.dataset.action;
         const btnContent = btn.textContent;
         const displayedNum = display.textContent;
-        const previousKeyType = calculator.dataset.previousKeyType
+        const previousKeyType = calculator.dataset.previousKeyType;
+        let firstValue =  calculator.dataset.firstValue;
+        let secondValue;
 
         //displays number
         if (!action) {
@@ -77,7 +46,33 @@ buttons.addEventListener('click', e => {
 
         if (action == 'add' || action == 'subtract' || action == 'multiply' || action == 'divide') {
             calculator.dataset.previousKeyType = 'operator';
+            calculator.dataset.operator = action;
             opDisplay.textContent = btnContent;
+            calculator.dataset.firstValue = displayedNum;
+        }
+
+        if (action === 'calculate') {
+            secondValue = displayedNum;
+            console.log('first value ' + firstValue)
+            console.log('second value ' + secondValue);
+            const operator = calculator.dataset.operator;
+            function operate(a, operator, b) {
+                let result;
+                if (operator == 'add') {
+                    result = parseFloat(a) + parseFloat(b);
+                }
+                if (operator == 'subtract') {
+                    result = parseFloat(a) - parseFloat(b);
+                }
+                if (operator == 'divide') {
+                    result = parseFloat(a) / parseFloat(b);
+                }
+                if (operator == 'multiply') {
+                    result = parseFloat(a) * parseFloat(b);
+                }
+                return result;
+            }
+            display.textContent = operate(firstValue, operator, secondValue);
         }
     }
 });
