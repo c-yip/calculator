@@ -45,22 +45,7 @@ buttons.addEventListener('click', e => {
             secondValue = displayedNum;
             console.log(`First Value: ${firstValue} Second Value: ${secondValue}`);
             const operator = calculator.dataset.operator;
-            function operate(a, operator, b) {
-                let result;
-                if (operator == 'add') {
-                    result = parseFloat(a) + parseFloat(b);
-                }
-                if (operator == 'subtract') {
-                    result = parseFloat(a) - parseFloat(b);
-                }
-                if (operator == 'divide') {
-                    result = parseFloat(a) / parseFloat(b);
-                }
-                if (operator == 'multiply') {
-                    result = parseFloat(a) * parseFloat(b);
-                }
-                return result;
-            }
+            
             display.textContent = operate(firstValue, operator, secondValue);
         }
 
@@ -73,3 +58,21 @@ buttons.addEventListener('click', e => {
         }
     }
 });
+
+// math function
+function operate(a, operator, b) {
+    let result;
+    if (operator == 'add') {
+        result = parseFloat(a) + parseFloat(b);
+    }
+    if (operator == 'subtract') {
+        result = parseFloat(a) - parseFloat(b);
+    }
+    if (operator == 'divide') {
+        result = parseFloat(a) / parseFloat(b);
+    }
+    if (operator == 'multiply') {
+        result = parseFloat(a) * parseFloat(b);
+    }
+    return result;
+}
