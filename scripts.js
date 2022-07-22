@@ -26,9 +26,12 @@ buttons.addEventListener('click', e => {
         }
 
         if (action === 'decimal' && !displayedNum.includes('.')) {
-            calculator.dataset.previousKeyType = 'decimal';
             display.textContent = displayedNum + '.';
-        }
+            calculator.dataset.previousKeyType = 'decimal';
+        } else if (previousKeyType === 'operator') {
+            display.textContent = '0.'
+            calculator.dataset.previousKeyType = 'decimal';
+        } 
 
         if (action == 'add' || action == 'subtract' || action == 'multiply' || action == 'divide') {
             calculator.dataset.previousKeyType = 'operator';
