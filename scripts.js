@@ -50,9 +50,10 @@ operator.forEach(op => {
 })
 
 equals.addEventListener('click', e => {
-    if (pressedBtn == 'equals' || pressedBtn == 'operator') {
+    if (pressedBtn == 'equals' || pressedBtn == 'operator' || firstNum == null) {
         pressedBtn = 'equals';
         opPressed = null;
+        opDisplay.textContent = '';
         return
     } else
     secondNum = display.textContent;
@@ -60,6 +61,7 @@ equals.addEventListener('click', e => {
     console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     display.textContent = (operate(firstNum, opPressed, secondNum));
     opPressed = null;
+    opDisplay.textContent = '';
 })
 
 decimal.addEventListener('click', e => {
