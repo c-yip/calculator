@@ -10,7 +10,7 @@ const equals = calculator.querySelector('#equals');
 let firstNum;
 let secondNum; 
 let pressedBtn;
-let opPressed;
+let opPressed = null;
 
 //event listeners
 numbers.forEach(number => {
@@ -21,25 +21,37 @@ numbers.forEach(number => {
         } else {
             display.textContent += e.target.textContent;
         }
+    console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     })
 })
 
 operator.forEach(op => {
     op.addEventListener('click', e => {
-        opDisplay.textContent = e.target.textContent;
-
-        firstNum = display.textContent;
-        console.log(firstNum);
-
-        pressedBtn = 'operator';
-        opPressed = e.target.dataset.op;
-        console.log(opPressed);
+        if (opPressed == null) {
+            pressedBtn = 'operator';
+            firstNum = display.textContent;
+            opPressed = e.target.dataset.op;
+            opDisplay.textContent = e.target.textContent;
+        } else {
+            secondNum = display.textContent;
+            pressedBtn = 'operator';
+            display.textContent = (operate(firstNum, opPressed, secondNum));
+            firstNum = display.textContent;
+            opPressed = e.target.dataset.op;
+        }
+        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     })
 })
 
 equals.addEventListener('click', e => {
+    if (pressedBtn == 'equals') {
+        pressedBtn = 'equals';
+        opPressed = null;
+        return
+    } else
     secondNum = display.textContent;
     pressedBtn = 'equals';
+    console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     return display.textContent = (operate(firstNum, opPressed, secondNum));
 })
 
