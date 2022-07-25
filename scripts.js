@@ -8,6 +8,7 @@ const num = calculator.querySelectorAll('[data-num]');
 const op = calculator.querySelectorAll('[data-op]');
 const equals = calculator.querySelector('#equals');
 const decimal = calculator.querySelector('#decimal');
+const clear = calculator.querySelector('#clear')
 let firstNum = null;
 let secondNum; 
 let pressedBtn;
@@ -74,6 +75,14 @@ decimal.addEventListener('click', e => {
             pressedBtn = 'decimal';
         }
     }
+})
+
+clear.addEventListener('click', e => {
+    firstNum = null;
+    secondNum = null;
+    pressedBtn = null;
+    opPressed = null;
+    display.textContent = '0';
 })
 
 // math function
