@@ -83,6 +83,7 @@ clear.addEventListener('click', e => {
     pressedBtn = null;
     opPressed = null;
     display.textContent = '0';
+    opDisplay.textContent = '';
 })
 
 // math function
