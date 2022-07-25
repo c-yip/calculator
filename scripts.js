@@ -6,9 +6,11 @@ const numbers = calculator.querySelectorAll('.numbers');
 const operator = calculator.querySelectorAll('.operator');
 const num = calculator.querySelectorAll('[data-num]');
 const op = calculator.querySelectorAll('[data-op]');
+const equals = calculator.querySelector('#equals');
 let firstNum;
-let secondNum;
+let secondNum; 
 let pressedBtn;
+let opPressed;
 
 //event listeners
 numbers.forEach(number => {
@@ -30,7 +32,15 @@ operator.forEach(op => {
         console.log(firstNum);
 
         pressedBtn = 'operator';
+        opPressed = e.target.dataset.op;
+        console.log(opPressed);
     })
+})
+
+equals.addEventListener('click', e => {
+    secondNum = display.textContent;
+    opPressed = 'equals';
+    return display.textContent = (operate(firstNum, opPressed, secondNum));
 })
 
 // math function
