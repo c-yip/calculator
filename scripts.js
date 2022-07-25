@@ -8,7 +8,7 @@ const num = calculator.querySelectorAll('[data-num]');
 const op = calculator.querySelectorAll('[data-op]');
 const equals = calculator.querySelector('#equals');
 const decimal = calculator.querySelector('#decimal');
-let firstNum;
+let firstNum = null;
 let secondNum; 
 let pressedBtn;
 let opPressed = null;
@@ -16,7 +16,7 @@ let opPressed = null;
 //event listeners
 numbers.forEach(number => {
     number.addEventListener('click', e =>{
-        if (display.textContent == '0' || pressedBtn == 'operator') {
+        if (display.textContent == '0' || pressedBtn == 'operator' || pressedBtn == 'equals') {
             display.textContent = e.target.textContent;
             pressedBtn = 'number';
         } else {
@@ -50,7 +50,7 @@ operator.forEach(op => {
 })
 
 equals.addEventListener('click', e => {
-    if (pressedBtn == 'equals') {
+    if (pressedBtn == 'equals' || pressedBtn == 'operator') {
         pressedBtn = 'equals';
         opPressed = null;
         return
