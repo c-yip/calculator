@@ -20,6 +20,7 @@ numbers.forEach(number => {
             pressedBtn = 'number';
         } else {
             display.textContent += e.target.textContent;
+            pressedBtn = 'number';
         }
     console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     })
@@ -27,17 +28,21 @@ numbers.forEach(number => {
 
 operator.forEach(op => {
     op.addEventListener('click', e => {
-        if (opPressed == null) {
+        if (opPressed == null && pressedBtn !== 'operator') {
             pressedBtn = 'operator';
             firstNum = display.textContent;
             opPressed = e.target.dataset.op;
             opDisplay.textContent = e.target.textContent;
-        } else {
+        } else if (pressedBtn !== 'operator') {
             secondNum = display.textContent;
             pressedBtn = 'operator';
+            opDisplay.textContent = e.target.textContent;
             display.textContent = (operate(firstNum, opPressed, secondNum));
             firstNum = display.textContent;
             opPressed = e.target.dataset.op;
+        } else if (pressedBtn == 'operator') {
+            opPressed = e.target.dataset.op;
+            opDisplay.textContent = e.target.textContent;
         }
         console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     })
