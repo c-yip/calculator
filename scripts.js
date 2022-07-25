@@ -8,19 +8,30 @@ const num = calculator.querySelectorAll('[data-num]');
 const op = calculator.querySelectorAll('[data-op]');
 let firstNum;
 let secondNum;
+let pressedBtn;
 
 //event listeners
 numbers.forEach(number => {
     number.addEventListener('click', e =>{
-        if (display.textContent == '0') {
+        if (display.textContent == '0' || pressedBtn == 'operator') {
             display.textContent = e.target.textContent;
+            pressedBtn = 'number';
         } else {
             display.textContent += e.target.textContent;
         }
     })
 })
 
+operator.forEach(op => {
+    op.addEventListener('click', e => {
+        opDisplay.textContent = e.target.textContent;
 
+        firstNum = display.textContent;
+        console.log(firstNum);
+
+        pressedBtn = 'operator';
+    })
+})
 
 // math function
 function operate(a, operator, b) {
