@@ -52,7 +52,8 @@ equals.addEventListener('click', e => {
     secondNum = display.textContent;
     pressedBtn = 'equals';
     console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    return display.textContent = (operate(firstNum, opPressed, secondNum));
+    display.textContent = (operate(firstNum, opPressed, secondNum));
+    opPressed = null;
 })
 
 // math function
