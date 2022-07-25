@@ -39,7 +39,7 @@ operator.forEach(op => {
 
 equals.addEventListener('click', e => {
     secondNum = display.textContent;
-    opPressed = 'equals';
+    pressedBtn = 'equals';
     return display.textContent = (operate(firstNum, opPressed, secondNum));
 })
 
