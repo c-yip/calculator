@@ -19,8 +19,8 @@ html, body {
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
     row-gap: 5px;
     column-gap: 5px;
 }
@@ -31,20 +31,6 @@ button {
     margin: 0px;
 }
 
-#equals {
+/* #equals {
     height: 105px;
-}
-/* .row1 {
-    display: flex;
-    gap: 5px;
-}
-
-.row2 {
-    display: flex;
-    gap: 5px;
-}
-
-.row3 {
-    display: flex;
-    gap: 5px;
 } */
