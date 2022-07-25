@@ -96,6 +96,8 @@ function operate(a, operator, b) {
         result = parseFloat(a) - parseFloat(b);
     }
     if (operator == 'divide') {
+        if (b == '0') {return alert('You cannot divide by zero.')
+    } else
         result = parseFloat(a) / parseFloat(b);
     }
     if (operator == 'multiply') {
