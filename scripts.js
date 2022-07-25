@@ -10,6 +10,7 @@ const equals = calculator.querySelector('#equals');
 const decimal = calculator.querySelector('#decimal');
 const clear = calculator.querySelector('#clear');
 const backspace = calculator.querySelector('#backspace');
+
 let firstNum = null;
 let secondNum; 
 let pressedBtn;
@@ -17,17 +18,25 @@ let opPressed = null;
 
 //event listeners
 numbers.forEach(number => {
-    number.addEventListener('click', e =>{
-        if (display.textContent == '0' || pressedBtn == 'operator' || pressedBtn == 'equals') {
-            display.textContent = e.target.textContent;
-            pressedBtn = 'number';
-        } else {
-            display.textContent += e.target.textContent;
-            pressedBtn = 'number';
-        }
-    console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    })
+    number.addEventListener('click', () => numberSelection(number.textContent))
 })
+
+document.addEventListener('keydown', e => {
+    if (e.key >= 0 && e.key <= 9) {
+        numberSelection(e.key);
+    }
+})
+
+function numberSelection(number) {
+    if (display.textContent == '0' || pressedBtn == 'operator' || pressedBtn == 'equals') {
+        display.textContent = number;
+        pressedBtn = 'number';
+    } else {
+        display.textContent += number;
+        pressedBtn = 'number';
+    }
+    console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
+}
 
 operator.forEach(op => {
     op.addEventListener('click', e => {
