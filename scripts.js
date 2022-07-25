@@ -1,8 +1,7 @@
 const calculator = document.querySelector('.calculator');
 const display = calculator.querySelector('.display');
 const opDisplay = calculator.querySelector('.op-display')
-const buttons = calculator.querySelector('.buttons');
-const numbers = buttons.querySelectorAll('.numbers');
+
 
 
 // math function
