@@ -16,8 +16,8 @@ let opPressed = null;
 
 //event listeners
 numbers.forEach(number => {
-    number.addEventListener('click', () => numberSelection(number.textContent))
-})
+    number.addEventListener('click', () => numberSelection(number.textContent));
+});
 
 function numberSelection(number) {
     if (display.textContent == '0' || pressedBtn == 'operator' || pressedBtn == 'equals') {
@@ -27,8 +27,7 @@ function numberSelection(number) {
         display.textContent += number;
         pressedBtn = 'number';
     }
-    console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-}
+};
 
 operator.forEach(op => {
     op.addEventListener('click', e => {
@@ -48,24 +47,22 @@ operator.forEach(op => {
             opPressed = e.target.dataset.op;
             opDisplay.textContent = e.target.textContent;
         }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    })
-})
+    });
+});
 
 equals.addEventListener('click', () => {
     if (pressedBtn == 'equals' || pressedBtn == 'operator' || firstNum == null) {
         pressedBtn = 'equals';
         opPressed = null;
         opDisplay.textContent = '';
-        return
+        return;
     } else
     secondNum = display.textContent;
     pressedBtn = 'equals';
-    console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     display.textContent = (operate(firstNum, opPressed, secondNum));
     opPressed = null;
     opDisplay.textContent = '';
-})
+});
 
 decimal.addEventListener('click', e => {
     if (pressedBtn !== 'decimal') {
@@ -77,7 +74,7 @@ decimal.addEventListener('click', e => {
             pressedBtn = 'decimal';
         }
     }
-})
+});
 
 clear.addEventListener('click', e => {
     firstNum = null;
@@ -86,11 +83,11 @@ clear.addEventListener('click', e => {
     opPressed = null;
     display.textContent = '0';
     opDisplay.textContent = '';
-})
+});
 
 backspace.addEventListener('click', e => {
     display.textContent = display.textContent.slice(0, -1);
-})
+});
 
 // math function
 function operate(a, operator, b) {
@@ -102,7 +99,7 @@ function operate(a, operator, b) {
         result = parseFloat(a) - parseFloat(b);
     }
     if (operator == 'divide') {
-        if (b == '0') {return alert('You cannot divide by zero.')
+        if (b == '0') {return alert('You cannot divide by zero.');
     } else
         result = parseFloat(a) / parseFloat(b);
     }
@@ -134,7 +131,6 @@ document.addEventListener('keydown', e => {
             opPressed = 'add';
             opDisplay.textContent = e.key;
         }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     } 
     if (e.key === '-') {
         if (opPressed == null && pressedBtn !== 'operator') {
@@ -153,7 +149,6 @@ document.addEventListener('keydown', e => {
             opPressed = 'subtract';
             opDisplay.textContent = e.key;
         }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     } 
     if (e.key === '*') {
         if (opPressed == null && pressedBtn !== 'operator') {
@@ -172,7 +167,6 @@ document.addEventListener('keydown', e => {
             opPressed = 'multiply';
             opDisplay.textContent = '×';
         }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     } 
     
     if (e.key === '/') {
@@ -192,7 +186,6 @@ document.addEventListener('keydown', e => {
             opPressed = 'divide';
             opDisplay.textContent = '÷';
         }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     }
 
     if (e.key === 'Enter') {
@@ -200,11 +193,10 @@ document.addEventListener('keydown', e => {
             pressedBtn = 'equals';
             opPressed = null;
             opDisplay.textContent = '';
-            return
+            return;
         } else
         secondNum = display.textContent;
         pressedBtn = 'equals';
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
         display.textContent = (operate(firstNum, opPressed, secondNum));
         opPressed = null;
         opDisplay.textContent = '';
@@ -234,4 +226,4 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Backspace') {
         display.textContent = display.textContent.slice(0, -1);
     }
-})
+});
