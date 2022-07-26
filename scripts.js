@@ -54,7 +54,7 @@ operator.forEach(op => {
     })
 })
 
-equals.addEventListener('click', e => {
+equals.addEventListener('click', () => {
     if (pressedBtn == 'equals' || pressedBtn == 'operator' || firstNum == null) {
         pressedBtn = 'equals';
         opPressed = null;
@@ -222,5 +222,18 @@ document.addEventListener('keydown', e => {
                 pressedBtn = 'decimal';
             }
         }
+    }
+
+    if (e.key === 'Escape') {
+        firstNum = null;
+        secondNum = null;
+        pressedBtn = null;
+        opPressed = null;
+        display.textContent = '0';
+        opDisplay.textContent = '';
+    }
+
+    if (e.key === 'Backspace') {
+        
     }
 })
