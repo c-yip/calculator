@@ -108,6 +108,7 @@ html, body {
     justify-content: start;
     align-items: center;
     padding-left: 40px;
+    overflow-x: auto
 }
 
 .op-display {
