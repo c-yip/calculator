@@ -7,33 +7,26 @@ html, body {
     height: 100%;
 }
 
-/* .calculator {
-    /* display: grid; */
-    
-    /* grid-template-rows: (2, 100px); */
-/* } */ */
-
-.displays {
-    display: flex;
-    justify-content: space-between;
-}
-
-.buttons {
+.calculator {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 500px;
+    width: 500px;
     grid-template-areas:
+    "display display display opDisplay"
     "seven eight nine backspace"
     "four five six divide"
     "one two three multiply"
     "decimal zero subtract add"
     "clear . equals equals";
+    background-color: lightblue;
 }
 
-button {
-    /* height: 50px;
+/* button {
+    height: 50px;
     width: 50px;
-    margin: 0px; */
-}
+    margin: 0px;
+} */
 
 /* grid areas */
 
@@ -107,4 +100,19 @@ button {
 
 #equals {
     grid-area: equals;
+}
+
+.display {
+    grid-area: display;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.op-display {
+    grid-area: opDisplay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
