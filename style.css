@@ -7,10 +7,11 @@ html, body {
     height: 100%;
 }
 
-.calculator {
-    display: grid;
-    grid-template-rows: (2, 1fr);
-}
+/* .calculator {
+    /* display: grid; */
+    
+    /* grid-template-rows: (2, 100px); */
+/* } */ */
 
 .displays {
     display: flex;
@@ -19,18 +20,91 @@ html, body {
 
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(5, 50px);
-    row-gap: 5px;
-    column-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "seven eight nine backspace"
+    "four five six divide"
+    "one two three multiply"
+    "decimal zero subtract add"
+    "clear . equals equals";
 }
 
 button {
-    height: 50px;
+    /* height: 50px;
     width: 50px;
-    margin: 0px;
+    margin: 0px; */
 }
 
-/* #equals {
-    height: 105px;
-} */
+/* grid areas */
+
+#seven {
+    grid-area: seven;
+}
+
+#eight {
+    grid-area: eight;
+}
+
+#nine {
+    grid-area: nine;
+}
+
+#backspace {
+    grid-area: backspace;
+}
+
+#four {
+    grid-area: four;
+}
+
+#five {
+    grid-area: five;
+}
+
+#six {
+    grid-area: six;
+}
+
+[data-op = "divide"]{
+    grid-area: divide;
+}
+
+#one {
+    grid-area: one;
+}
+
+#two {
+    grid-area: two;
+}
+
+#three {
+    grid-area: three;
+}
+
+[data-op = "multiply"]{
+    grid-area: multiply;
+}
+
+#decimal {
+    grid-area: decimal;
+}
+
+#zero {
+    grid-area: zero;
+}
+
+[data-op = "subtract"] {
+    grid-area: subtract;
+}
+
+[data-op = "add"]{
+    grid-area: add;
+}
+
+#clear {
+    grid-area: clear;
+}
+
+#equals {
+    grid-area: equals;
+}
