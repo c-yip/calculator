@@ -76,11 +76,11 @@ equals.addEventListener('click', e => {
 })
 
 decimal.addEventListener('click', e => {
-    if (pressedBtn !== 'decimal' && display.textContent.indexOf('.') == '-1') {
-        if (display.textContent == '0') {
+    if (pressedBtn !== 'decimal') {
+        if (display.textContent == '0' || pressedBtn == 'operator') {
             display.textContent = e.target.textContent;
             pressedBtn = 'decimal';
-        } else {
+        } else if (display.textContent.indexOf('.') == '-1') {
             display.textContent += e.target.textContent;
             pressedBtn = 'decimal';
         }
