@@ -3,7 +3,6 @@ const display = calculator.querySelector('.display');
 const opDisplay = calculator.querySelector('.op-display');
 const numbers = calculator.querySelectorAll('.numbers');
 const operator = calculator.querySelectorAll('.operator');
-const op = calculator.querySelectorAll('[data-op]');
 const equals = calculator.querySelector('#equals');
 const decimal = calculator.querySelector('#decimal');
 const clear = calculator.querySelector('#clear');
@@ -14,7 +13,7 @@ let secondNum;
 let pressedBtn;
 let opPressed = null;
 
-//event listeners
+// event listeners for buttons
 numbers.forEach(number => {
     number.addEventListener('click', () => numberSelection(number.textContent));
 });
@@ -27,7 +26,7 @@ function numberSelection(number) {
         display.textContent += number;
         pressedBtn = 'number';
     }
-};
+}
 
 operator.forEach(op => {
     op.addEventListener('click', e => {
@@ -109,6 +108,7 @@ function operate(a, operator, b) {
     return result;
 }
 
+// event listener for keyboard
 document.addEventListener('keydown', e => {
     if (e.key >= 0 && e.key <= 9) {
         numberSelection(e.key);
