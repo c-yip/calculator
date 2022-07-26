@@ -160,17 +160,17 @@ document.addEventListener('keydown', e => {
             pressedBtn = 'operator';
             firstNum = display.textContent;
             opPressed = 'multiply';
-            opDisplay.textContent = e.key;
+            opDisplay.textContent = '×';
         } else if (pressedBtn !== 'operator') {
             secondNum = display.textContent;
             pressedBtn = 'operator';
-            opDisplay.textContent = e.key;
+            opDisplay.textContent = '×';
             display.textContent = (operate(firstNum, opPressed, secondNum));
             firstNum = display.textContent;
             opPressed = 'multiply';
         } else if (pressedBtn == 'operator') {
             opPressed = 'multiply';
-            opDisplay.textContent = e.key;
+            opDisplay.textContent = '×';
         }
         console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     } 
@@ -180,17 +180,17 @@ document.addEventListener('keydown', e => {
             pressedBtn = 'operator';
             firstNum = display.textContent;
             opPressed = 'divide';
-            opDisplay.textContent = e.key;
+            opDisplay.textContent = '÷';
         } else if (pressedBtn !== 'operator') {
             secondNum = display.textContent;
             pressedBtn = 'operator';
-            opDisplay.textContent = e.key;
+            opDisplay.textContent = '÷';
             display.textContent = (operate(firstNum, opPressed, secondNum));
             firstNum = display.textContent;
             opPressed = 'divide';
         } else if (pressedBtn == 'operator') {
             opPressed = 'divide';
-            opDisplay.textContent = e.key;
+            opDisplay.textContent = '÷';
         }
         console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
     }
