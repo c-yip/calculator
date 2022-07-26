@@ -234,6 +234,6 @@ document.addEventListener('keydown', e => {
     }
 
     if (e.key === 'Backspace') {
-        
+        display.textContent = display.textContent.slice(0, -1);
     }
 })
