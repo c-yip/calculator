@@ -21,90 +21,6 @@ numbers.forEach(number => {
     number.addEventListener('click', () => numberSelection(number.textContent))
 })
 
-document.addEventListener('keydown', e => {
-    if (e.key >= 0 && e.key <= 9) {
-        numberSelection(e.key);
-    }
-
-    if (e.key === '+') {
-        if (opPressed == null && pressedBtn !== 'operator') {
-            pressedBtn = 'operator';
-            firstNum = display.textContent;
-            opPressed = 'add';
-            opDisplay.textContent = e.key;
-        } else if (pressedBtn !== 'operator') {
-            secondNum = display.textContent;
-            pressedBtn = 'operator';
-            opDisplay.textContent = e.key;
-            display.textContent = (operate(firstNum, opPressed, secondNum));
-            firstNum = display.textContent;
-            opPressed = 'add';
-        } else if (pressedBtn == 'operator') {
-            opPressed = 'add';
-            opDisplay.textContent = e.key;
-        }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    } 
-    if (e.key === '-') {
-        if (opPressed == null && pressedBtn !== 'operator') {
-            pressedBtn = 'operator';
-            firstNum = display.textContent;
-            opPressed = 'subtract';
-            opDisplay.textContent = e.key;
-        } else if (pressedBtn !== 'operator') {
-            secondNum = display.textContent;
-            pressedBtn = 'operator';
-            opDisplay.textContent = e.key;
-            display.textContent = (operate(firstNum, opPressed, secondNum));
-            firstNum = display.textContent;
-            opPressed = 'subtract';
-        } else if (pressedBtn == 'operator') {
-            opPressed = 'subtract';
-            opDisplay.textContent = e.key;
-        }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    } 
-    if (e.key === '*') {
-        if (opPressed == null && pressedBtn !== 'operator') {
-            pressedBtn = 'operator';
-            firstNum = display.textContent;
-            opPressed = 'multiply';
-            opDisplay.textContent = e.key;
-        } else if (pressedBtn !== 'operator') {
-            secondNum = display.textContent;
-            pressedBtn = 'operator';
-            opDisplay.textContent = e.key;
-            display.textContent = (operate(firstNum, opPressed, secondNum));
-            firstNum = display.textContent;
-            opPressed = 'multiply';
-        } else if (pressedBtn == 'operator') {
-            opPressed = 'multiply';
-            opDisplay.textContent = e.key;
-        }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    } 
-    
-    if (e.key === '/') {
-        if (opPressed == null && pressedBtn !== 'operator') {
-            pressedBtn = 'operator';
-            firstNum = display.textContent;
-            opPressed = 'divide';
-            opDisplay.textContent = e.key;
-        } else if (pressedBtn !== 'operator') {
-            secondNum = display.textContent;
-            pressedBtn = 'operator';
-            opDisplay.textContent = e.key;
-            display.textContent = (operate(firstNum, opPressed, secondNum));
-            firstNum = display.textContent;
-            opPressed = 'divide';
-        } else if (pressedBtn == 'operator') {
-            opPressed = 'divide';
-            opDisplay.textContent = e.key;
-        }
-        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
-    }
-})
-
 function numberSelection(number) {
     if (display.textContent == '0' || pressedBtn == 'operator' || pressedBtn == 'equals') {
         display.textContent = number;
@@ -197,3 +113,114 @@ function operate(a, operator, b) {
     }
     return result;
 }
+
+document.addEventListener('keydown', e => {
+    if (e.key >= 0 && e.key <= 9) {
+        numberSelection(e.key);
+    }
+
+    if (e.key === '+') {
+        if (opPressed == null && pressedBtn !== 'operator') {
+            pressedBtn = 'operator';
+            firstNum = display.textContent;
+            opPressed = 'add';
+            opDisplay.textContent = e.key;
+        } else if (pressedBtn !== 'operator') {
+            secondNum = display.textContent;
+            pressedBtn = 'operator';
+            opDisplay.textContent = e.key;
+            display.textContent = (operate(firstNum, opPressed, secondNum));
+            firstNum = display.textContent;
+            opPressed = 'add';
+        } else if (pressedBtn == 'operator') {
+            opPressed = 'add';
+            opDisplay.textContent = e.key;
+        }
+        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
+    } 
+    if (e.key === '-') {
+        if (opPressed == null && pressedBtn !== 'operator') {
+            pressedBtn = 'operator';
+            firstNum = display.textContent;
+            opPressed = 'subtract';
+            opDisplay.textContent = e.key;
+        } else if (pressedBtn !== 'operator') {
+            secondNum = display.textContent;
+            pressedBtn = 'operator';
+            opDisplay.textContent = e.key;
+            display.textContent = (operate(firstNum, opPressed, secondNum));
+            firstNum = display.textContent;
+            opPressed = 'subtract';
+        } else if (pressedBtn == 'operator') {
+            opPressed = 'subtract';
+            opDisplay.textContent = e.key;
+        }
+        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
+    } 
+    if (e.key === '*') {
+        if (opPressed == null && pressedBtn !== 'operator') {
+            pressedBtn = 'operator';
+            firstNum = display.textContent;
+            opPressed = 'multiply';
+            opDisplay.textContent = e.key;
+        } else if (pressedBtn !== 'operator') {
+            secondNum = display.textContent;
+            pressedBtn = 'operator';
+            opDisplay.textContent = e.key;
+            display.textContent = (operate(firstNum, opPressed, secondNum));
+            firstNum = display.textContent;
+            opPressed = 'multiply';
+        } else if (pressedBtn == 'operator') {
+            opPressed = 'multiply';
+            opDisplay.textContent = e.key;
+        }
+        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
+    } 
+    
+    if (e.key === '/') {
+        if (opPressed == null && pressedBtn !== 'operator') {
+            pressedBtn = 'operator';
+            firstNum = display.textContent;
+            opPressed = 'divide';
+            opDisplay.textContent = e.key;
+        } else if (pressedBtn !== 'operator') {
+            secondNum = display.textContent;
+            pressedBtn = 'operator';
+            opDisplay.textContent = e.key;
+            display.textContent = (operate(firstNum, opPressed, secondNum));
+            firstNum = display.textContent;
+            opPressed = 'divide';
+        } else if (pressedBtn == 'operator') {
+            opPressed = 'divide';
+            opDisplay.textContent = e.key;
+        }
+        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
+    }
+
+    if (e.key === 'Enter') {
+        if (pressedBtn == 'equals' || pressedBtn == 'operator' || firstNum == null) {
+            pressedBtn = 'equals';
+            opPressed = null;
+            opDisplay.textContent = '';
+            return
+        } else
+        secondNum = display.textContent;
+        pressedBtn = 'equals';
+        console.log(`First Number: ${firstNum} Second Number: ${secondNum}`)
+        display.textContent = (operate(firstNum, opPressed, secondNum));
+        opPressed = null;
+        opDisplay.textContent = '';
+    }
+
+    if (e.key === '.') {
+        if (pressedBtn !== 'decimal') {
+            if (display.textContent == '0' || pressedBtn == 'operator') {
+                display.textContent = e.key;
+                pressedBtn = 'decimal';
+            } else if (display.textContent.indexOf('.') == '-1') {
+                display.textContent += e.key;
+                pressedBtn = 'decimal';
+            }
+        }
+    }
+})
