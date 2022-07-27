@@ -122,6 +122,7 @@ button:hover {
     overflow-x: auto;
     background-color: grey;
     margin: 0px;
+    font-size: 30px;
 }
 
 .op-display {
@@ -131,4 +132,5 @@ button:hover {
     align-items: center;
     background-color: purple;
     margin: 0px;
+    font-size: 30px;
 }
