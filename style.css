@@ -5,13 +5,14 @@ html, body {
     align-items: center;
     margin: 0;
     height: 100%;
+    background-color: #B5EAEA;
 }
 
 .calculator {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 500px;
-    width: 500px;
+    height: 658px;
+    width: 453px;
     grid-template-areas:
     "display display display opDisplay"
     "seven eight nine backspace"
@@ -19,14 +20,24 @@ html, body {
     "one two three multiply"
     "decimal zero subtract add"
     "clear . equals equals";
-    background-color: lightblue;
+    background-color: #EDF6E5;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: thick;
+    border-color: white;
 }
 
-/* button {
-    height: 50px;
-    width: 50px;
-    margin: 0px;
-} */
+button {
+    background-color: #FFBCBC;
+    border: none;
+    border-radius: 8px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff9999;
+}
 
 /* grid areas */
 
@@ -108,7 +119,9 @@ html, body {
     justify-content: start;
     align-items: center;
     padding-left: 40px;
-    overflow-x: auto
+    overflow-x: auto;
+    background-color: grey;
+    margin: 0px;
 }
 
 .op-display {
@@ -116,4 +129,6 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: purple;
+    margin: 0px;
 }
