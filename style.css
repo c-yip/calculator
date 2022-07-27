@@ -5,7 +5,16 @@ html, body {
     align-items: center;
     margin: 0;
     height: 100%;
-    background-color: #B5EAEA;
+    background-color: #2C3333;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 39px;
+    text-align: center;
+    padding-bottom: 15px;
+    color: white;
 }
 
 .calculator {
@@ -20,19 +29,20 @@ html, body {
     "one two three multiply"
     "decimal zero subtract add"
     "clear . equals equals";
-    background-color: #EDF6E5;
+    background-color: #395B64;
     border-radius: 8px;
     border-style: solid;
     border-width: thick;
-    border-color: white;
+    border-color: black;
 }
 
 button {
-    background-color: #FFBCBC;
-    border: none;
+    background-color: #A5C9CA;
+    border-style: solid;
     border-radius: 8px;
     margin: 3px;
     cursor: pointer;
+    font-size: 30px;
 }
 
 button:hover {
@@ -110,7 +120,16 @@ button:hover {
 }
 
 #equals {
-    grid-area: equals;
+    grid-area: equals
+}
+
+#clear, #equals, #backspace {
+    background-color: #FFB6B9;
+
+}
+
+#clear:hover, #equals:hover, #backspace:hover {
+    background-color: #ff9999;
 }
 
 .display {
@@ -120,9 +139,11 @@ button:hover {
     align-items: center;
     padding-left: 40px;
     overflow-x: auto;
-    background-color: grey;
+    background-color: #E7F6F2;
     margin: 0px;
-    font-size: 30px;
+    font-size: 40px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 .op-display {
@@ -130,7 +151,9 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: purple;
+    background-color: #E7F6F2;
     margin: 0px;
-    font-size: 30px;
+    font-size: 40px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
